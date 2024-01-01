@@ -13,17 +13,14 @@ The key steps are:
 """
 
 from langchain.document_loaders import YoutubeLoader
-from langchain.indexes import VectorstoreIndexCreator
-from icecream import ic
 from ollama_manager import OllamaManager
+from processor_abstract import ProcessorAbstract
 import json
 
-class ProcessorYoutube:
+class ProcessorYoutube(ProcessorAbstract):
 
     def __init__(self, model_name='solar', temperature=.25):
-        self.model_name = model_name
-        self.temperature = temperature
-        self.llm_manager = OllamaManager(model_name=model_name, temperature=.25)
+        super().__init__(model_name, temperature)
 
     def process(self, youtube_url):
 

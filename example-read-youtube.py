@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 
-from dotenv import load_dotenv
 from icecream import ic
 from ollama_manager import OllamaManager
 from processor_youtube import ProcessorYoutube
-
-load_dotenv()
 
 def main():
     youtube_url = "https://www.youtube.com/watch?v=yRwFgZSiDUc"
