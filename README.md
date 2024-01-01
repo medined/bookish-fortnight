@@ -34,9 +34,28 @@ approach.
 ollama install solar
 ```
 
+- Clone the project.
+
+```base
+git clone https://github.com/medined/bookish-fortnight.git
+```
+
+- Connect to the project directory.
+
+```base
+cd bookish-fortnight/src
+```
+
 - Start the Ollama container.
 
 ```bash
 ./cmd-start-ollama-contanier.sh
 ```
 
+- Set `bookmark_file` and `vault_directory` in `cmd-ollama-create-obsidian-page.py`.
+
+- Run the script.
+
+```bash
+./cmd-ollama-create-obsidian-page.py
+```
