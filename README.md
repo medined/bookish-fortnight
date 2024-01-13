@@ -34,6 +34,8 @@ approach.
 ollama install solar
 ```
 
+- Export a bookmark file. Hopefully, it will have the same format as Brave. If not change the `parse_bookmark_file` function.
+
 - Clone the project.
 
 ```base

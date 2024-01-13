@@ -56,6 +56,14 @@ def skippable(url):
             return True
     return False
 
+def parse_bookmark_file(soup):
+    pages = {}
+    for anchor in soup.find_all('a'):
+        url = anchor.get('href')
+        title = sanitize_title(anchor.text)
+        if url and title:
+            pages[title] = url
+    return pages
 
 youtube_processor = ProcessorYoutube()
 generic_processor = ProcessorGeneric()
@@ -63,13 +71,7 @@ generic_processor = ProcessorGeneric()
 with open(bookmark_file) as f:
     soup = BeautifulSoup(f, 'html.parser')
 
-pages = {}
-for anchor in soup.find_all('a'):
-    url = anchor.get('href')
-    title = sanitize_title(anchor.text)
-    if url and title:
-        pages[title] = url
-
+pages = parse_bookmark_file(soup)
 sorted_keys = sorted(pages.keys())
 page_count = len(sorted_keys)
 
